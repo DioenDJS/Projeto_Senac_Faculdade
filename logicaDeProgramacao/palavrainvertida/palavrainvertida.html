@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Palavra Invertida</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="../cssLogica/logica.css" rel="stylesheet">
+
+</head>
+
+<body>
+    <section class=" bloco">
+
+        <div class="container banner row">
+            <h1>Palavra Invertida</h1>
+        
+            <div class=" col s12 center">
+                <div class="card-img container ">
+                    <img class="imagresponsiva" src="../../img/imgPalavraInvertida.jpg" alt="foto do quadro com o exercicio da farmacia avenida">
+                </div>
+                <p class="pergunta">Palavra : <input type="text" id="inPalavra" autofocus ></p>
+                
+                <p><input class=" btn " type="button" value="Inverter" id="btInverter"></p>
+            </div>
+
+            <h3 id="outSaida"></h3>
+
+        </div>
+    </section>
+    <section class="linha">
+        <h2 class="center">Código em JavaScript</h2>
+        <pre class="fundo">
+	   function convertendo() {                                    
+    var inPalavra = document.getElementById("inPalavra");
+    var palavra = inPalavra.value;
+
+    var outSaida = document.getElementById("outSaida");
+
+
+    var invertida = " ";                                    
+    for(var i = palavra.length-1; i >= 0 ; i--){
+        invertida += palavra.charAt(i);
+    }
+
+    outSaida.textContent = palavra + " : " 
+    +  invertida.charAt(1).toUpperCase() 
+    +  invertida.substr(2).toLowerCase();
+    }                                                          
+    var btInverter = document.getElementById("btInverter");     
+    btInverter.addEventListener("click", convertendo);	
+        </pre>
+    </section>
+    <section>
+        <h2 class="center">Código em Java</h2>
+        <pre>
+
+
+	    </pre>
+    </section>
+
+
+    <script src="palavrainvertida.js"></script>
+
+    <!-- Scripts e links javaScript -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materia
+lize.min.js"></script>
+</body>
+
+</html>

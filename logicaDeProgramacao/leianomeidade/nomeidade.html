@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Programa leai e idade</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="../cssLogica/logica.css" rel="stylesheet">
+
+</head>
+
+<body>
+    <section class=" bloco">
+
+        <div class="container banner row">
+            <h1>Leia Nome e Idade</h1>
+            
+            <div class=" col s12 center">
+                <div class="card-img container ">
+                    <img class="imagresponsiva" src="../../img/imglenomeidade.jpg" alt="foto do quadro com o exercicio da farmacia avenida">
+                </div>
+                <p class="pergunta">Digite o nome do jogador: <input type="text" id="inNome" autofocus></p>
+                <p class="pergunta">Digite idade do jogador : <input type="text" id="inIdade"></p>
+                <p><input class=" btn " type="button" value="Adicionar" id="btAdd"></p>
+            </div>
+	    <div>
+            <h3>Jogadores:</h3>
+		    <pre class="resposta" id="outSaida"></pre> 
+            <h3 id="outMedia"></h3>
+	    </div> 
+
+        </div>
+    </section>
+    <section class="linha">
+        <h2 class="center">Código em JavaScript</h2>
+        <pre class="fundo">
+        //vetor de Objeto que vai armazenar os jogadores 
+        var jogador = [];
+        
+        /**
+            * Esta função vai adicionar os jogadores por nome 
+            * e idade e mostrar a média de idades do time 
+            */
+        function verificaParImpar(){
+            
+            var inIdade = document.getElementById("inIdade");               
+            var inNome = document.getElementById("inNome");
+        
+            var outSaida = document.getElementById("outSaida");	
+            var outMedia = document.getElementById("outMedia");
+        
+            var idade = Number(inIdade.value);
+            var nome = inNome.value;
+        
+            /** 
+            adicionando os valores capturados ao vetor em cada 
+            atributo deste vetor um atributo nome e outro idade
+            */
+            jogador.push({nome: nome, idade: idade});
+        
+            /*limpando a saida para adicionar
+                mais um jogador na saida */
+            outSaida.textContent = "";
+        
+            for(var i = 0 ; i < jogador.length;i++){
+            
+                //concatenando a saida
+                outSaida.textContent += "Nome do " + (i+1)
+                + "º jogador = " 
+                + jogador[i].nome + "\nIdade do jogador = " 
+                + jogador[i].idade + " anos " + "\n"	
+            
+            }
+        
+            inIdade.value = " ";
+            inNome.value = " ";
+            inNome.focus();
+        
+            
+        
+            var idadesSomadas = 0 ;
+            
+            for(var i = 0; i < jogador.length; i++){
+                idadesSomadas += jogador[i].idade;
+            }
+            
+        
+            outMedia.textContent =  "Media de idade : " 
+            + idadesSomadas / jogador.length; 	
+        }
+        var btAdd = document.getElementById("btAdd");
+        btAdd.addEventListener("click", verificaParImpar);
+                   
+        </pre>
+    </section>
+    <section>
+        <h2 class="center">Código em Java</h2>
+        <pre>
+
+
+	    </pre>
+    </section>
+
+
+    <script src="nomeidade.js"></script>
+
+    <!-- Scripts e links javaScript -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materia
+lize.min.js"></script>
+</body>
+
+</html>

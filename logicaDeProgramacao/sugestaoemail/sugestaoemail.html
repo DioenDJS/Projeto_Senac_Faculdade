@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sugestâo de E-mail</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="../cssLogica/logica.css" rel="stylesheet">
+
+</head>
+
+<body>
+    <section class=" bloco">
+
+        <div class="container banner row">
+            <h1>Sugestão de e-mail</h1>
+        
+            <div class=" col s12 center">
+                <div class="card-img container ">
+                    <img class="imagresponsiva" src="../../img/imgemail.jpg" alt="foto do quadro com o exercicio da farmacia avenida">
+                </div>
+                <p class="pergunta">Digite o nome completo : <input type="text" id="inNome" autofocus ></p>
+                
+                <p><input class=" btn " type="button" value="Gerar" id="btGerar"></p>
+            </div>
+            
+            <h3 id="outEmail"></h3>
+
+        </div>
+	<div class= "row container">
+    <div class="col s8 l8 card green lighten-4 white-text">
+        <p>
+	<span class="card-title">split()</span><br/>
+	O método  <span>split()</span> divide um string em parte(um array de string).Essa separação se dá de acordo com um separador passado por parâmetro podendo ser desde um espaço em branco a outro caracter de uma expressão regular.
+        </p>
+    </div>
+    </div>
+    </section>
+    <section class="linha">
+        <h2 class="center">Código em JavaScript</h2>
+        <pre class="fundo">
+function email() {
+                                                            
+
+  var inNome = document.getElementById("inNome");
+  var nome = inNome.value.toLowerCase();
+  var dividindoNomes = nome.split(" ");
+  var numDivisoes = dividindoNomes.length
+
+  var email = " ";
+
+
+  for(var i = 0; i < numDivisoes; i++){
+     email += dividindoNomes[i].charAt(0);
+  }
+
+  var outEmail = document.getElementById("outEmail");
+  outEmail.textContent = "E-mail : " + email.toLowerCase() 
+  + "@senac.com.br"; 
+
+}
+var btGerar = document.getElementById("btGerar");
+btGerar.addEventListener("click", email);
+	</pre>
+    </section>
+    <section>
+        <h2 class="center">Código em Java</h2>
+        <pre>
+
+
+	    </pre>
+    </section>
+
+
+    <script src="sugestaoemail.js"></script>
+
+    <!-- Scripts e links javaScript -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materia
+lize.min.js"></script>
+</body>
+
+</html>

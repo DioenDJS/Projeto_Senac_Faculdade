@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Farmácia Avenida</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="../cssLogica/logica.css" rel="stylesheet">
+
+</head>
+
+<body>
+    <section class=" bloco">
+
+        <div class="container banner row">
+            <h1>Programa Endereço</h1>
+            
+            <div class=" col s12 center">
+                <div class="card-img container ">
+                    <img class="imagresponsiva" src="../../img/imgendereco.jpg" alt="foto do quadro com o exercicio da farmacia avenida">
+                </div>
+                <p class="pergunta">Local(formato rua,nº - cidade) : <input type="text" id="inEndereco" autofocus ></p>
+                <p><input class=" btn " type="button" value="Verificar" id="btVerificar"></p>
+            </div>
+            <h2>subtitulo</h2>
+            
+            <h3 id="outRua"></h3>
+	    <h3 id="outNumero"></h3>
+	    <h3 id="outCidade"></h3>
+
+        </div>
+    </section>
+    <section class="linha">
+        <h2 class="center">Código em JavaScript</h2>
+        <pre class="fundo">
+function adicionar(){
+    var inEndereco = document.getElementById("inEndereco");
+    var endereco = inEndereco.value;
+
+    var outRua = document.getElementById("outRua");
+    var outNumero = document.getElementById("outNumero");
+    var outCidade = document.getElementById("outCidade");
+    if(endereco == " "){
+        alert("Endereço não informado !");
+        inEndereco.focus();
+        return;
+    }
+
+    var virgula = endereco.indexOf(",");
+    var traco = endereco.lastIndexOf("-");
+    if(virgula == -1 || traco == -1){
+        alert("Informe os dados no formato indicado (Eua, Número - Cidade)");                                                                       
+	inEndereco.focus();
+        return;
+    }
+    var rua = endereco.substr(0, virgula);
+    var numero = endereco.substr(virgula+1, traco - (virgula+1));
+    var cidade = endereco.substr(traco+1);
+
+    outRua.textContent = "Rua : " + rua;
+    outNumero.textContent = "Número : " + numero;
+    outCidade.textContent = "Cidade : " + cidade;
+
+
+}
+var btVerificar = document.getElementById("btVerificar");
+btVerificar.addEventListener("click", adicionar);
+        </pre>
+    </section>
+    <section>
+        <h2 class="center">Código em Java</h2>
+        <pre>
+
+
+	    </pre>
+    </section>
+
+
+    <script src="endereco.js"></script>
+
+    <!-- Scripts e links javaScript -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materia
+lize.min.js"></script>
+</body>
+
+</html>

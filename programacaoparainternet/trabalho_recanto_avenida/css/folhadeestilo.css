@@ -1,0 +1,226 @@
+/*importando fonte Roboto do google fonts*/
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+/* estabelecendo as configuraaçoes de comportamento padra das paginas*/
+*{
+    margin: 0;
+    padding: 0;
+    border: none;
+    text-decoration: none;
+    color: rgb(15, 11, 11);
+    font-size: 100%;
+    outline:none;
+    font-weight: 300;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+    text-align: justify;
+}
+/*definido o width responsivo das imagens*/
+img{
+    width: 100%;
+}
+ul,li,a{
+    list-style: none;
+}
+
+/*======= HEADER ==========*/
+header{
+    background-color: rgba(0, 0, 0, 0.9);
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    /*definindo display flex*/
+    display: flex;
+    /*define espacamento dentro da tag header entre os dois elementos 
+    existente no caso o logo e o menu*/
+    justify-content: space-between;
+    /**alinhando vertical dos elementos ao centro */
+    align-items: center;
+    /*espaçamento interno */
+    padding: 20px 50px;
+} 
+header h1, a{color: #fff;}
+header nav ul{display: flex;}/*definindo os elementos na horizontal*/
+header nav ul li{ margin: 0 15px;}
+header nav ul li a{padding: 2px 2px 3px 2px;}
+header nav ul li a:hover{ padding: 2px; border-bottom: rgb(199, 120, 120); border-style: solid;border-width: 0 0 2px 0;}
+header nav ul li:first-child{margin-left: 0;}
+header nav ul li:last-child{margin-right: 0;}
+
+/* ================= SECTION SAUDAÇÃO ================= */
+.saudacao{
+    background-image: url(../img/img_home.jpg);
+    background-size: cover;
+    min-height: 100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+}
+/*alterando h1 da pagina principal*/
+
+.saudacao div h1{ font-size: 3.2rem; margin-top: 15px;}
+.saudacao div p{ font-size: 2rem; margin: 15px 0 35px 0;color: #fff;}
+.saudacao div a{ margin-top: 15px auto;}
+.saudacao div a.btn{ background-color: rgb(116, 56, 56); border-radius: 4px; padding: 20px 50px;}
+.saudacao div h1,p,a {text-align: center;color:#fff;}
+
+/* =========================== SECTION DESTAQUE =========================================*/
+.destaque {
+    display: flex;/**/ 
+    flex-direction: row;/*direcionando os display na posição horizontal em colunas */  
+    align-items: center;/*alinhando os elementos ao centro*/
+    justify-content: space-around;
+    padding: 10px 15px;
+    background-color: #ebeced;
+    
+    min-height: 75vh;
+}
+.destaque article { display: flex; border-radius: 3px; box-shadow:1px 1px 5px rgb(75, 75, 75)} 
+.destaque article div {height: 100%;}
+.destaque article .div02, .div03{ flex-grow:2; align-items: center;padding:13px 3px ;}
+.destaque article .div01{ flex-grow:20;}
+.destaque article>div:first-child{background-image: url(../img/img_quarto_destaque_promocao_do_mes.jpg);background-size: cover;}
+.destaque article div  h2, p{color: rgb(36, 36, 36);}
+.ancoraServicoFree{border:1px solid rgb(155, 75, 75);font-size:0.7em;padding:10px;color: rgb(155, 75, 75); font-weight: 700; margin: 8px 0;}
+.detalhes{ background-color:  rgb(36, 36, 36); color:#fff; padding:12px 45px; margin-top: 3px}
+.destaque article div img{ width: 100%;}
+.div02{border-right :1px solid rgb(177, 177, 177); }
+.div02 h2,p{margin-left: 19px;}
+.div02 p strong{color:rgb(63, 160, 63); font-weight: bold;}
+.div02 .avaliacao{background-color:rgb(63, 160, 63); color:#fff;font-weight: bold; padding: 3px 15px; border-radius: 37%; }
+.div02>h2{font-size:1.3em; font-weight: 800; color: rgb(56, 56, 56);}
+.div03{display:flex; flex-direction: column;}
+.div03>p:first-child, strong {color: rgb(189, 22, 22);}
+.div03>p:first-child>strong{text-decoration-line: line-through;}
+.destaque article {  background-color:rgb(255, 255, 255);padding: 10px; width:70%; height: 250px; }
+.destaque aside{ height: max-content; background-color: rgb(243, 227, 227);padding: 10px;}
+.destaque aside ul li a { margin:5px 0;color: rgb(36, 36, 36); }
+/* ========================= quebra do layout de tablete  ============================ */
+/* ========================= Serviços section ===========================================*/
+.servicos{
+    display: flex;
+    flex-direction: column;
+    min-height: 100Vh;
+    background-color: rgb(255, 255, 255);
+    padding: 15px;
+    justify-content: center;
+    align-items: center;
+    align-content: stretch;
+}
+.servicos>h1{
+    padding: 19px 0 48px;
+    font-size:4em;
+    font-weight: 500;
+    color: rgb(82, 82, 82);
+
+
+}
+article{
+    display: flex;
+    flex-direction: row;
+    width: 70%;
+    height: 400px;
+}
+.servicos div{
+    width: 100%;
+    padding: 20px;
+    background-color: #fff;
+    margin: 5px;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 1px 1px 3px rgb(61, 61, 61);
+    display: flex;
+    flex-direction: column;
+
+}
+.servicos div:hover h6{ color: #fff;}
+.servicos div:hover{
+    background-color:  rgb(116, 56, 56);
+    color:#fff;
+}
+.servicos div>p{
+    font-size: 1em;
+    font-weight: 500;
+    text-align: justify;
+}
+.servicos div:hover>p{
+    color: rgb(255, 255, 255);
+}
+div:hover>.material-icons{
+    color: #fff; 
+    border: 2px solid #fff;
+    border-radius: 50%;
+    padding: 10%;
+    font-size: 44px;
+}
+div:hover>.fas{
+    color: #fff; 
+    border: 2px solid #fff;
+    border-radius: 50%;
+    padding: 10%;
+    font-size: 44px;
+}
+.servicos div h6{ color: rgb(116, 56, 56); font-weight: 700; margin: 8px 0 13px 0;}
+div>.material-icons, .fas{
+    color: rgb(116, 56, 56);
+   
+    border: 2px solid rgb(116, 56, 56);
+    border-radius: 50%;
+    padding: 10%;
+    font-size: 44px;
+
+}
+/* ===================== Section mapacontato ===================================*/
+.mapacontato{
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(36, 36, 36); 
+    min-height: 100vh;
+    color:rgb(240, 240, 240);
+    justify-content: center;
+    align-items: center;
+    padding: 45px 0 0 0;
+    margin-bottom: 35px;
+}
+.mapacontato>p{color:#fff; display: inline; margin: 12px ; padding-left:9px;}
+
+.material-icons{
+    color:rgb(240, 240, 240);
+}
+.mapacontato>p>i .material-icons{
+    color:rgb(240, 240, 240);
+}
+.emailicons{
+    color:rgb(240, 240, 240);
+    border:none;
+    padding: 0;
+    margin-right: 9px;
+    font-size:1.5em;
+}
+.mapacontato>p>i .emailicons, .fab{
+    color:rgb(240, 240, 240);
+    border:none;
+    padding: 0;
+    
+    font-size:1.5em;
+}
+
+.mapacontato>div>iframe{
+    width: 900px;
+    height: 450px;
+    border-radius: 5px;
+    margin-bottom:25px; 
+}
+/* ==================== footer ==============================*/
+footer{
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px 0 35px 0;
+}
+
+@media (max-width: 700px){
+    
+}

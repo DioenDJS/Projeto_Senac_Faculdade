@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Calculadora</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="../../logicaDeProgramacao/cssLogica/logica.css" rel="stylesheet">
+    <style >
+        @import url('https://fonts.googleapis.com/css?family=Aldrich&display=swap');
+        p.linhaCal{ margin:0 25%;}
+        p.visor{ background-color : #eceff1; 
+                font-size: 2.5em; 
+                height: 100px; 
+                border-radius:3px 3px 0 0;
+        }
+        .btTamOperacoes{
+                background-color: #424242 ;
+                align: center;
+                width: 48px;
+                height:25px;
+                font-size:8px;
+                margin:1px 1px 1px 3px;
+        }      
+        .btTam{width:23%; 
+               height:65px;
+        }
+        #btHexadecimal{
+        }
+        textarea.materialize-textarea{
+            font-size:1.5em; 
+            font-family: 'Aldrich', sans-serif;
+        }
+        .construcaoCalculadora strong{
+            color:#dba615;
+            background-color: #7e726d;
+            border-radius: 2px;
+            padding:1px;
+        }
+        .tamanhoParagrafo{
+            font-size: 1.2em;
+            text-align: justify;
+        }
+        .borda-redonda{
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <section class="construcaoCalculadora bloco">
+        <div class="row container">
+            <h1>Construindo Calculadora</h1>
+            <p class="tamanhoParagrafo">
+                Esta caluladora realiza algumas operações de conversão de base 
+                númerica, entre numeros <strong>Decimal</strong>, <strong>Binario</strong>, 
+                <strong>Octal</strong> e <strong>Hexadecimal</strong> 
+            </p>
+            <p><h5>Convertendo de Decimal para Binario: </h5></p>
+            <p class="tamanhoParagrafo">
+                
+                Para convertemos um numero <strong>decimal</strong> para <strong>binario</strong> dividindo este numero
+                pela base numerica que queremos converter neste caso queremos 
+                converter para ha base <strong>dois (2)</strong>.<br/>
+                Vamos supor que queremos converter o numero <strong>decimal 13 na base 10 (13)<sub>10</sub></strong>
+                para um numero binario vamos dividir ele por <strong>2</strong> 
+            </p>
+            <pre class="borda-redonda">
+                Decimal -> binario
+
+                    13|_2_
+                     1  6 |_2_
+                        0   3 |_2_
+                            1   1 |_2_
+                                1   0  
+            </pre>
+            <p class="tamanhoParagrafo">
+                Pegamos os <strong>restos</strong> dessa <strong>divisão</strong>
+                no <strong>sentido</strong> de <strong>baixo</strong> para <strong>cima</strong> 
+                formando numero <strong>binario 1101 na base 2 (1101)<sub>2</sub></strong>
+
+            </p>
+            <p><h5>Construindo o algoritmo</h5></p>
+            <p class="tamanhoParagrafo">
+
+            </p>
+            <pre class="borda-redonda">
+                <code>
+//Criando a função decimal para binario
+
+function binario(){
+
+    //variavel obtendo valor digitado
+
+    var valor = Number(coletor);
+
+    /*variavel que ira concatenar o 
+    resto da divisao do numero ate zerar*/
+
+    var numeroBinario = "";
+
+    /**
+     * utilizando a estrutura repita um loop
+     * do/while ate o resultado da diviso ser 
+     * zero e terminar a divisao com um break
+     */
+    do{
+        numeroBinario += valor%2
+        divisao = Math.trunc(valor/2);
+        novovalor = divisao
+        valor = novovalor
+        
+
+        if(valor == 0){
+            break;
+        }
+
+    }while(true);       
+
+    /*variavel que vai inverter a string numeroBinario 
+        para acertar a saida para o sequencia correta
+    */
+
+    var numeroBinarioAjustado ="";
+
+    for(var i = numeroBinario.length; i>=0;i--){
+        
+        numeroBinarioAjustado += numeroBinario.charAt(i);
+    }
+     outpromocao.textContent = numeroBinarioAjustado;    
+    
+}//fim da função binario para 
+                </code>
+            </pre>
+            <p><h5>Convertendo de Binario para Decimal: </h5></p>
+            <p class="tamanhoParagrafo">
+                Para convertermos um numero de <strong>binario</strong> para decimal 
+                precisamos multiplicar os numeros por <strong>2</strong>.
+                Vamos super que queremos converter o numero 
+                <strong>binario 1101</strong> para
+                <strong>decimal</strong>.
+
+            </p>
+            <pre class="borda-redonda"> 
+                1         1           0          1
+                
+                1x2       1x2         0x2        1x2
+            </pre>
+            <p>
+                depois adicionamos <strong>potências</strong> aos numeros 2 de forma 
+                crescente da direita para esquerda<br/><strong>1x2<sup>3</sup>  1x2<sup>2</sup>  0x2<sup>1</sup>  1x2<sup>0</sup></strong>
+            </p>
+            <pre class="borda-redonda">    
+                1X(2)3 +  1X(2)2  +   0X(2)1  +  1X(2)0
+            </pre>
+            <p>
+                Em seguida resolvemos estas <strong>potências</strong> 
+            </p>
+            <pre class="borda-redonda"> 
+                1         1           0          1
+                
+                1x2       1x2         0x2        1x2
+
+                1X(2)3    1X(2)2      0X(2)1     1X(2)0
+
+                1X8       1X4         0X2        1X1
+            </pre>
+            <p>
+                Logo após multiplicamos os resultados destas <strong>potências</strong>
+                com os valores dos numero binario 
+            </p>
+            <pre class="borda-redonda"> 
+
+                1X8       1X4         0X2        1X1
+
+                8         4           0          1
+            </pre>
+            <p>
+                Por fim somamos estes valores obtidos assim convertendo-os em um valor 
+                <strong>decimal</strong>
+            </p>
+            <pre class="borda-redonda"> 
+               (1         1           0          1) -> Numero Binario
+                
+                1x2       1x2         0x2        1x2
+
+                1X(2)3    1X(2)2      0X(2)1     1X(2)0
+
+                1X8       1X4         0X2        1X1
+
+                8         4           0          1
+
+               (13) -> Numero Decimal
+            </pre>
+        </div>
+
+        <div class="row container">
+            
+        </div>
+    </section><!-- fim da section construção de calculadora-->
+    <section class=" bloco ">
+        
+                <p class="visor linhaCal row " > <textarea id="outSaidaDisplay" class="materialize-textarea"></textarea></p>
+                <p class="linhaCal row ">
+                    <input class=" btTamOperacoes btn col 2 " type="button" value="bin/dec" id="btDec" onclick="decimal();">
+                    <input class=" btTamOperacoes btn col 2 " type="button" value="dec/bin" id="btBin" onclick="binario();">
+                    <input class=" btTamOperacoes btn col 2 " type="button" value="oct/dec" id="btOct" onclick="octal();">
+                    <input class=" btTamOperacoes btn col 2 " type="button" value="dec/oct" id="btDec" onclick="DeOctal();">	
+                </p>
+                   
+                <p class="linhaCal row ">
+                    <input class=" btTam btn col 2 " type="button" value="1" id="btUm" onclick="botao1();">	
+                    <input class=" btTam btn col 2 " type="button" value="2" id="btDois" onclick="botao2();">
+                    <input class=" btTam btn col 2 " type="button" value="3" id="btTres" onclick="botao3();">
+                    <input class=" btTam btn col 2 " type="button" value="C" id="btLimpa" onclick="botaoC();">
+                </p>
+                <p class="linhaCal  row">
+                    <input class=" btTam btn col 2 " type="button" value="4" id="btQuatro" onclick="botao4();">
+                    <input class=" btTam btn col 2 " type="button" value="5" id="btCinco" onclick="botao5();">
+                    <input class=" btTam btn col 2 " type="button" value="6" id="btSeis" onclick="botao6();">
+                    <input class=" btTam btn col 2 " type="button" value="H" id="btHexadecimal" onclick="botaoHexa();">
+                </p>
+                <p class="linhaCal row ">
+                    <input class=" btTam btn col 2 " type="button" value="7" id="btSete" onclick="botao7();">
+                    <input class=" btTam btn col 2 " type="button" value="8" id="btOito" onclick="botao8();">
+                    <input class=" btTam btn col 2 " type="button" value="9" id="btNove" onclick="botao9();">
+                </p>
+                <p class="linhaCal row">
+                    <input class=" btTam btn col 2 " type="button" value="0" id="btZero" onclick="botao0();">
+                    <input class=" btTam btn col 2 " type="button" value=" . " id="btnadaa">
+                    <input class=" btTam btn col 2 " type="button" value=" , " id="btnada">
+                </p>
+                
+        
+    </section>
+    <section class="linha">
+        <h2 class="center">Código em JavaScript</h2>
+        <pre class="fundo">
+            var outpromocao = document.getElementById("outpromocao");
+var coletor = ""//variavel que vai concatenar a string para enviar as funçoes
+function botao0() {
+    var btZero = document.getElementById("btZero");
+    var zero = btZero.value;
+    coletor += btZero.value;
+    outpromocao.textContent += zero;
+
+}
+
+function botao1() {
+    var btNove = document.getElementById("btUm");
+    var nove = btNove.value;
+    coletor += btNove.value;
+    outpromocao.textContent += nove;
+
+}
+
+function botao2() {
+    var btDios = document.getElementById("btDois");
+    var dois = btDois.value;
+    coletor += btDois.value;
+    outpromocao.textContent += dois;
+
+}
+
+function botao3() {
+    var btTres = document.getElementById("btTres");
+    var tres = btTres.value;
+    coletor += btTres.value;
+    outpromocao.textContent += tres;
+
+}
+
+
+function botao4() {
+    var btQuatro = document.getElementById("btQuatro");
+    var quatro = btQuatro.value;
+    coletor += btQuatro.value;
+    outpromocao.textContent += quatro;
+
+}
+
+function  botao5() { 
+    var btCinco = document.getElementById("btCinco");
+    var cinco = btCinco.value;
+    coletor += btCinco.value;
+    outpromocao.textContent += cinco;
+}	
+
+function  botao6() { 
+    var btSeis = document.getElementById("btSeis");
+    var seis = btSeis.value;
+    coletor += btSeis.value;
+    outpromocao.textContent += seis;
+}	
+
+function  botao7() { 
+    var btSete = document.getElementById("btSete");
+    var sete = btSete.value;
+    coletor += btSete.value;
+    outpromocao.textContent += sete;
+}
+
+function  botao8() {
+    var btOito = document.getElementById("btOito");
+    var oito = btOito.value;
+    coletor += btOito.value;
+    outpromocao.textContent += oito;
+}
+
+function botao9() {
+    var btNove = document.getElementById("btNove");
+    var nove = btNove.value;
+    coletor += btNove.value;
+    outpromocao.textContent += nove;
+
+}	
+
+// fim das funções que capturam os valoes dos numeros
+
+// -- Criano a função transformar Numero Binario em Decimal --
+
+function decimal(){
+    
+    //capiturando o valor digitado
+    var valor = coletor;
+    
+    //variavel que ira receber o o resultado em numero decimal
+    var numeroDecimal = 0;
+
+    //variavel que vai inverter o valor de entrada
+    var valorInvertido = "";
+
+    //invertendo valor com loop for
+    for(var i = valor.length-1; i >= 0 ; i--){
+        valorInvertido += valor.charAt(i);
+        }
+    /*vetor de potencia que ira ser somado as potencias que 
+      corresponderem aos valor um da string inputada  
+    */
+    var potencia = [1 , 2 , 4, 8, 16, 32];
+
+    for(var i = valor.length-1; i >= 0; i--){
+            //condicional que ira verificar se deve ser somado o valor
+            if(valorInvertido.charAt(i) == "1"){
+                //somando os valores das potencias
+                numeroDecimal += potencia[i]; 
+            }    
+    }
+    
+    // retornando o resultado 
+    outpromocao.textContent = numeroDecimal;
+
+}//fim da função convertendo binario para decimal
+
+//Criando a função decimal para binario
+function binario(){
+    //variavel obtendo valor digitado
+    var valor = Number(coletor);
+    //variavel que ira concatenar o resto da divisao do numero ate zerar
+    var numeroBinario = "";
+
+    /**
+     * utilizando a estrutura repita um loop
+     * do/while ate o resultado da diviso ser 
+     * zero e terminar a divisao com um break
+     */
+    do{
+        numeroBinario += valor%2
+        divisao = Math.trunc(valor/2);
+        novovalor = divisao
+        valor = novovalor
+        
+
+        if(valor == 0){
+            break;
+        }
+
+    }while(true);       
+    /*variavel que vai inverter a string numeroBinario 
+        para acertar a saida para o sequencia correta
+    */
+    var numeroBinarioAjustado ="";
+
+    for(var i = numeroBinario.length; i>=0;i--){
+        
+        numeroBinarioAjustado += numeroBinario.charAt(i);
+    }
+     outpromocao.textContent = numeroBinarioAjustado;    
+    
+}//fim da função binario para 
+
+//função converte octal para decimal
+function octal(){
+    
+    //capiturando o valor digitado
+    var valor = coletor;
+    
+    //variavel que ira receber o o resultado em numero decimal
+    var numeroDecimal = 0;
+    var potencia = [];
+    //variavel que vai inverter o valor de entrada
+    var valorInvertido = "";
+
+    //vetor que ira receber os valores convertidos em 
+    var vetorValorInt = [];
+    //invertendo valor com loop for
+    for(var i = valor.length-1; i >= 0 ; i--){
+        valorInvertido += valor.charAt(i);
+       
+        }
+
+    //vetor que vai receber os valores convertidos em tipo Number int
+    for(var i = 0 ;i < valor.length; i++){
+        vetorValorInt[i] = parseInt(valorInvertido.charAt(i));
+    }   
+    
+    /*vetor de potencia que ira ser somado as potencias que 
+      corresponderem aos valor um da string inputada  
+    */
+    var potencia = [1, 8, 64, 512, 4096, 32768, 262144 ];
+
+    for(var i = 0;i < valor.length; i++){
+            
+                //somando os valores das potencias
+                
+                numeroDecimal += (potencia[i]*vetorValorInt[i]); 
+                
+    }
+    
+    // retornando o resultado 
+    outpromocao.textContent = numeroDecimal;
+
+}//fim da função convertendo binario para decimal
+
+//Criando a função decimal para binario
+function DeOctal(){
+    //variavel obtendo valor digitado
+    var valor = Number(coletor);
+    //variavel que ira concatenar o resto da divisao do numero ate zerar
+    var numeroOctal = "";
+
+    /**
+     * utilizando a estrutura repita um loop
+     * do/while ate o resultado da diviso ser 
+     * zero e terminar a divisao com um break
+     */
+    do{
+        numeroOctal += valor%8
+        divisao = Math.trunc(valor/8);
+        novovalor = divisao
+        valor = novovalor
+        
+
+        if(valor == 0){
+            break;
+        }
+
+    }while(true);       
+    /*variavel que vai inverter a string numeroBinario 
+        para acertar a saida para o sequencia correta
+    */
+    var numeroOctalAjustado ="";
+
+    for(var i = numeroOctal.length; i>=0;i--){
+        
+        numeroOctalAjustado += numeroOctal.charAt(i);
+    }
+     outpromocao.textContent = numeroOctalAjustado;    
+    
+}//fim da função binario para 
+
+//função converte octal para decimal
+function hexadecimall(){
+    
+    //capiturando o valor digitado
+    var valor = coletor;
+    
+    //variavel que ira receber o o resultado em numero decimal
+    var numeroDecimal = 0;
+    var potencia = [];
+    //variavel que vai inverter o valor de entrada
+    var valorInvertido = "";
+
+    //vetor que ira receber os valores convertidos em 
+    var vetorValorInt = [];
+    //invertendo valor com loop for
+    for(var i = valor.length-1; i >= 0 ; i--){
+        valorInvertido += valor.charAt(i);
+       
+        }
+
+    //vetor que vai receber os valores convertidos em tipo Number int
+    for(var i = 0 ;i < valor.length; i++){
+        vetorValorInt[i] = parseInt(valorInvertido.charAt(i));
+    }   
+    
+    /*vetor de potencia que ira ser somado as potencias que 
+      corresponderem aos valor um da string inputada  
+    */
+    var potencia = [1, 8, 64, 512, 4096, 32768, 262144 ];
+
+    for(var i = 0;i < valor.length; i++){
+            
+                //somando os valores das potencias
+                
+                numeroDecimal += (potencia[i]*vetorValorInt[i]); 
+                
+    }
+    
+    // retornando o resultado 
+    outpromocao.textContent = numeroDecimal;
+
+}//fim da função convertendo binario para decimal
+
+	    </pre>
+    </section>
+    <section>
+        <h2 class="center">Código em Java</h2>
+        <pre>
+
+
+	    </pre>
+    </section>
+
+
+    <script src="calculadora.js"></script>
+
+    <!-- Scripts e links javaScript -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materia
+lize.min.js"></script>
+</body>
+
+</html>

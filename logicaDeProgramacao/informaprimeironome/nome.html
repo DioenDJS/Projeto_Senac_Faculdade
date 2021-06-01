@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Informa primeiro nome</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="../cssLogica/logica.css" rel="stylesheet">
+
+</head>
+
+<body>
+    <section class=" bloco">
+
+        <div class="container banner row">
+            <h1>Informe Primeiro Nome</h1>
+            
+            <div class=" col s12 center">
+                <div class="card-img container ">
+                    <img class="imagresponsiva" src="../../img/primeironome.jpg" alt="foto do quadro com o exercicio da farmacia avenida">
+                </div>
+                <p class="pergunta">Digite nome : <input type="text" id="inNome"></p>
+                
+                <p><input class=" btn " type="button" value="Verifica" id="btVerifica"></p>
+            </div>
+        
+        
+            <h3 id="outNome"></h3>
+            <h3 id="outPrimeiroNome"></h3>
+
+        </div>
+	<div class= "row container">
+    <div class="col s8 l8 card green lighten-4 white-text">
+        <p>
+	<span class="card-title">substr()</span><br/>
+            O método <span>substr()</span> retorna um trecho de uma string de acordo com os números(valores) passados por parâmetro, se não for passado valores dentro dos parênteses o método retorna toda string do começo ao fim.
+        </p>
+    </div>
+    </div>
+    </section>
+    <section class="linha">
+        <h2 class="center">Código em JavaScript</h2>
+        <pre class="fundo">
+function nome(){                                            
+        var inNome = document.getElementById("inNome");
+        var outPrimeiroNome = document.getElementById("outPrimeiroNome");
+        var outNome = document.getElementById("outNome");         
+	var nome = inNome.value;                                    
+	var primeiro = nome.substr(0, nome.indexOf(" ");            
+	outPrimeiroNome.textContent = "Primeiro nome :  " + primeiro ;
+        outNome.textContent = nome;
+} 
+var btVerifica = document.getElementById("btVerifica");  
+btVerifica.addEventListener("click", nome);
+	</pre>
+    </section>
+    <section>
+        <h2 class="center">Código em Java</h2>
+        <pre>
+
+
+	    </pre>
+    </section>
+
+
+    <script src="nome.js"></script>
+
+    <!-- Scripts e links javaScript -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materia
+lize.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Mercado Avenida</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="../cssLogica/logica.css" rel="stylesheet">
+</head>
+<body>
+    <section class="bloco">
+	    <div class=" container row">
+   		 <h1>Mercado Avenida</h1>
+   		 <div class=" col s12 center">
+			 <p class="pergunta">
+			 Produto : <input  class="center"type="text" id="inProduto">
+  		         </p>
+    <p class="pergunta">
+        Preço R$ : <input class="center" type="text" name="" id="inPreco">
+    </p>
+    <p>
+        <input class="btn "  type="button" value="Calcular" id="btCalcular"> 
+    </p>
+
+    <h3 id="outSaidaResultadoProduto"></h3>
+    <h3 id="outSaidaResultadoPreco"></h3>
+		 </div>
+   </section>
+<section class="linha">
+            <h2 class="center">Código em JavaScript</h2>
+            <pre class="fundo" id="mercado">
+function calculandoProdutoMercado(){
+
+    var inProduto = document.getElementById("inProduto");
+    var inPreco = document.getElementById("inPreco");
+
+
+    var produto = inProduto.value;
+    var preco = Number(inPreco.value);
+
+    var valorTotalComDescontoNaTerceiraUnidade = 
+    (preco * 2) + (preco - (preco * 0.50) );
+
+    var outSaidaResultadoProduto = document.getElementById
+    ("outSaidaResultadoProduto");
+    outSaidaResultadoProduto.textContent = "Promoção " + produto;
+
+    var outSaidaResultadoPreco = document.getElementById
+    ("outSaidaResultadoPreco");
+    outSaidaResultadoPreco.textContent = "Leve 3 por apens " 
+    + valorTotalComDescontoNaTerceiraUnidade.toFixed(2) + " R$";
+
+
+}//fim da function calculando produto mercado
+
+var btCalcular = document.getElementById("btCalcular");
+btCalcular.addEventListener("click", calculandoProdutoMercado);
+            </pre>
+    </section>
+    <section>
+            <h2 class="center">Código em Java</h2>
+            <pre id="avenida">
+package mercadoavenida.com;
+import java.util.Scanner;
+public class MercadoAvenida {
+
+  public static void main(String[] args) {
+
+    String produto = " ";
+    double preco = 0;
+    double descontoTerceiraUnidade = 0;
+        
+    Scanner scan = new Scanner(System.in);
+    
+    System.out.print("Digite o Produto : ");
+    produto = scan.next();
+    
+    System.out.print("Digite o preço : ");
+    preco = scan.nextDouble();
+    
+    descontoTerceiraUnidade = (preco * 2) +
+    (preco - (preco * 0.50));
+    
+    System.out.println("Promoção : " + produto);
+    System.out.println("Leve 3 por apenas " +
+    descontoTerceiraUnidade + " R$");
+
+  }//fim do method
+
+}//fim da class
+
+
+            </pre>
+    </section>
+
+    <script src="mercadoAvenida.js"></script>
+    <!-- Scripts e links javaScript -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+</body>
+</html>
+

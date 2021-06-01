@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Modelo e Preço do Veiculo</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="../cssLogica/logica.css" rel="stylesheet">
+
+</head>
+<body>
+   <section class=" bloco">
+	   
+   <div class="container banner row">	   
+      <h1>Calculando Parcela do veiculo</h1>
+      <div class=" col s12 center">
+      <p class="pergunta">
+        Digite o modelo do veiculo :
+        <input type="text" name="" id="inModelo">
+      </p>
+
+      <p class="pergunta">
+        Digite o valor do veiculo :
+        <input type="number" name="" id="inValor">
+     </p>
+
+    <p>
+        <input class=" btn " type="button" value="Calcular" id="btCalcular">
+    </div>
+    </p>
+    <h2>Veiculo</h2>
+    <h3 id="outRespostaModelo"></h3>
+    <h3 id="outRespostaValor"></h3>
+    <h3 id="outRespostaAvista"></h3>
+    <h3 id="outRespostaDesconto"></h3>
+    <h3 id="outRespostaParcela"></h3>
+
+    </div>
+    </div>
+    </section>
+    <section class="linha">
+	    <h2 class="center">Código em JavaScript</h2>
+	    <pre class="fundo">
+function calcular(){
+
+    var inModelo = document.getElementById("inModelo");
+    var modelo = inModelo.value;
+
+    var inValor = document.getElementById("inValor");
+    var valor = Number(inValor.value);
+
+    var desconto = valor * 0.20;
+    var avista = valor - desconto;
+    var parcela = valor / 12;
+
+    //capitura o elemento out resposta
+    var outRespostaModelo = document.getElementById("outRespostaModelo");
+    outRespostaModelo.textContent = "Modelo : " + modelo;
+
+     var outRespostaValor = document.getElementById("outRespostaValor");
+    outRespostaValor.textContent = "Valor : " + valor;
+
+     var outRespostaAvista = document.getElementById("outRespostaAvista");
+        outRespostaAvista.textContent = "À vista : " + avista;
+
+     var outRespostaDesconto = document.getElementById("outRespostaDesconto");
+     outRespostaDesconto.textContent = "Totsssssdl do desconto de 20% : " 
+     + (valor - avista);
+
+     var outRespostaParcela = document.getElementById("outRespostaParcela");
+     outRespostaParcela.textContent = "Parcela : 12 x " + parcela;
+
+}//fim da function calcular
+//vamos obter o ducumento que tiver o ID btMostrar
+var btCalcular = document.getElementById("btCalcular");
+
+//quando clicarmos no botao vamos chamar a funçao
+btCalcular.addEventListener("click", calcular); 
+	    </pre>
+    </section>	    
+    <section>
+	    <h2 class="center">Código em Java</h2>
+	    <pre>
+package revendedora.com;
+import java.util.Scanner;
+public class Revendedora {
+
+  public static void main(String[] args) {
+   
+   Scanner scan = new Scanner(System.in);
+   
+   String modelo = " ";
+   double valor = 0;
+   double desconto = 0;
+   double avista = 0;
+   double parcela = 0;
+   
+   System.out.print("Digite o modelo do veiculo : ");
+   modelo = scan.next();
+   
+   System.out.print("Digite o valor do veiculo : ");
+   valor = scan.nextDouble();
+   
+   
+   desconto = valor * 0.20;
+   avista = valor - desconto;
+   parcela = valor / 12;   
+   
+   System.out.print("Modelo : " + modelo + "\nValor: " 
+                    + valor + "\nÀ vista: " 
+		    + avista + "\nTotal do desconto de 20% : " 
+		    + desconto + "\nParcela 12 x : " 
+		    + parcela);
+   
+   
+  }//fim do method
+}//fim da class 
+
+	
+	    </pre>
+    </section>	    
+    
+
+    <script src="revendedora.js"></script>
+
+    <!-- Scripts e links javaScript -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materia
+lize.min.js"></script>
+</body>
+</html>
+

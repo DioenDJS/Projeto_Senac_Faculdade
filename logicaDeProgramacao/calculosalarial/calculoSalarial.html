@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Calculo Salarial</title>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="icon" href="img/icone.png">
+  <link rel="stylesheet" type="text/css" href="../cssLogica/logica.css">
+
+</head>
+<body>
+	<section class="bloco">
+		<div class="container banner row">
+    <h1>Programa calculo salarial </h1>
+    <div class="col s12 center">
+    <p class="pergunta">
+        qual seu nome ?
+        <input type="text" name="" id="inNome">
+    </p>
+    
+    <p class="pergunta">
+            qual seu salario ?
+            <input type="text" name="" id="inSalario">
+        </p>
+
+    <p>
+        <input class="btn " type="button" value="Mostrar Reajuste" id="btMostrar">
+    </p>
+    <h3 id="outNome"></h3>
+    <h3 id="outSalario"></h3>
+    </div>
+    </div><!-- fim da div row container bloco -->
+    
+    	
+      </section>
+    <section class="linha">
+        <h2 class="center">Código em JavaScript</h2>
+        <pre class="fundo" id="calculo">
+	   function calcular(){
+  
+
+        var inNome= document.getElementById("inNome");
+        var nome = inNome.value;
+
+        var inSalario = document.getElementById("inSalario");
+        var salario = Number(inSalario.value);
+        //   var media = (notaUm + notaDois)/ 2;
+
+        //    var statusCurricular;
+	
+	var novoSalario = salario * 1.10;
+
+        var outNome = document.getElementById("outNome");
+        outNome.textContent = "Nome : " + nome;
+
+
+        var outSalario = document.getElementById("outSalario");
+        outSalario.textContent = "Reajuste salarial :" 
+	+ novoSalario.toFixed() + " R$";
+
+
+
+} 
+//vamos obter o ducumento que tiver o ID btMostrar 
+
+var btMostrar = document.getElementById("btMostrar");
+
+btMostrar.addEventListener("click", calcular);
+        </pre>
+    </section>
+    <section>
+	    <h2 class="center">Código em Java</h2>
+	    <pre class="" id="salario">
+package calculosalarial;
+import java.util.Scanner;
+/**
+ *
+ * @author redes
+ */
+public class CalculoSalarial {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        // TODO code application logic here
+   
+        Scanner scan = new Scanner(System.in);
+        
+        String nome = " ";
+        double salario = 0;
+        double novoSalario = 0;
+        
+        System.out.print("Digite seu nome : ");
+        nome = scan.next();
+        
+        System.out.print("Digite o salario : ");
+        salario = scan.nextDouble();
+         
+        novoSalario = salario * 1.10;
+        
+        System.out.println("Nome : " + nome +  
+	"\nSalario : " + salario + "\nNovo Salario : 
+	" + novoSalario);
+        
+    }//fim do method
+    
+}//fim da class 
+
+
+
+	</pre>
+    </section>
+
+    <script src="calculoSalarial.js"></script>
+
+    <!-- Scripts e links javaScript -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</body>
+</html>
+
